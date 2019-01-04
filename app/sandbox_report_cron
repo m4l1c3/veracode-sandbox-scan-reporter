@@ -1,0 +1,2 @@
+#!/bin/sh
+/proc.sh >> /var/log/cron.log 2>&1

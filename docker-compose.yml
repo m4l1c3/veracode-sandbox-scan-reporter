@@ -1,0 +1,21 @@
+version: "3.2"
+services:
+    app:
+        build:
+            context: '.'
+            dockerfile: app/Dockerfile
+        environment:
+            VC_USER: 'user'
+            VC_PASS: "pass"
+            VC_SEND_ADDRESS: "blah@blah.com"
+            VC_SMTP: "smtp.blah.local"
+            VC_ADMIN_ADDRESS: "blah@bla.com"
+            VC_RECIPIENTS: "a@a.com"
+            VC_ATTACHMENT_BASE_PATH: "/src/"
+        entrypoint:
+            - /bin/sh
+            - -c
+            - "/run.sh"
+        volumes:
+            - './src:/src'
+    

@@ -1,0 +1,4 @@
+defusedxml
+requests
+termcolor
+xlsxwriter

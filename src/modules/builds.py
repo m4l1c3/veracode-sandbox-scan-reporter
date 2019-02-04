@@ -21,9 +21,9 @@ class Builds(object):
     def get_builds(self, app_id, sandbox_id):
         builds = []
         try:
-            response = self.xml_parser.parse_xml(
-                requests.post(endpoints.GET_SANDBOX_BUILD_LIST, auth=HTTPBasicAuth(self.user, self.password), data={'app_id': app_id, 'sandbox_id': sandbox_id}).text
-            )
+            self.logger.info('Attempting to retrieve builds for app: {} and sandbox: {}'.format(app_id, sandbox_id))
+            resp = requests.post(endpoints.GET_SANDBOX_BUILD_LIST, auth=HTTPBasicAuth(self.user, self.password), data={'app_id': app_id, 'sandbox_id': sandbox_id}).text
+            response = self.xml_parser.parse_xml(resp)
             for build in response:
                 if self.get_builds_response_is_valid(build) and build not in builds:
                     builds.append({

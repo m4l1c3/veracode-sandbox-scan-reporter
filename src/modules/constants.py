@@ -3,3 +3,4 @@ BUILDS_FOUND_MESSAGE_TEXT = 'Please see the attached spreadsheet for a summary o
 BUILDS_NOT_FOUND_MESSAGE_TEST = 'No sandbox scans have been run this week.'
 MESSAGE_SUBJECT = 'Weekly Veracode Sandbox Scan Results'
 ATTACHMENT_FILENAME = ''
+REQUEST_TIMEOUT=10

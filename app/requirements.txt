@@ -1,4 +1,5 @@
 defusedxml
-requests
+requests==2.20.1
 termcolor
 xlsxwriter
+pyOpenSSL

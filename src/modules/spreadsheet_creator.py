@@ -23,19 +23,21 @@ class SpreadsheetCreator(object):
             row = 1
             col = 0
             data = {}
-
-            for app in apps:
-                for sandbox in app['sandboxes']:
-                    for build in sandbox['builds']:
-                        if not build['submitter'] in data:
-                            data[build['submitter']] = 0
-                        data[build['submitter']] += 1
-            if(len(data) > 0):
-                self.have_data = True
-            for user, number_of_builds in data.items():
-                worksheet.write(row, col, user)
-                worksheet.write(row, col + 1, number_of_builds)
-                row += 1
+            if len(apps) > 0:
+                for app in apps:
+                    for sandbox in app['sandboxes']:
+                        for build in sandbox['builds']:
+                            if not build['submitter'] in data:
+                                data[build['submitter']] = 0
+                            data[build['submitter']] += 1
+                if(len(data) > 0):
+                    self.have_data = True
+                for user, number_of_builds in data.items():
+                    worksheet.write(row, col, user)
+                    worksheet.write(row, col + 1, number_of_builds)
+                    row += 1
+            else:
+                raise 'Unable to create spreadsheet, no apps found in data'
 
             workbook.close()
         except Exception as e:

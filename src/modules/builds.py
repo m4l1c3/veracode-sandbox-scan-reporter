@@ -26,7 +26,7 @@ class Builds(object):
             resp = requests.post(endpoints.GET_SANDBOX_BUILD_LIST, auth=HTTPBasicAuth(self.user, self.password), data={'app_id': app_id, 'sandbox_id': sandbox_id}, timeout=constants.REQUEST_TIMEOUT)
             if resp.status_code == 200:
                 response = self.xml_parser.parse_xml(resp.text)
-                self.logger.info('Received response for request: {}'.format(resp))
+                # self.logger.info('Received response for request: {}'.format(resp))
                 for build in response:
                     if self.get_builds_response_is_valid(build) and build not in builds:
                         builds.append({

@@ -22,7 +22,7 @@ class Sandboxes(object):
             self.logger.info('Attempting to retrieve sandboxes for app: {}'.format(app_id))
             resp = requests.post(endpoints.GET_SANDBOXES, auth=HTTPBasicAuth(self.user, self.password), data={'app_id': app_id}, timeout=constants.REQUEST_TIMEOUT)
             if resp.status_code == 200:
-                self.logger.info('Response to get sandbox: {}'.format(resp.text))
+                # self.logger.info('Response to get sandbox: {}'.format(resp.text))
                 response = self.xml_parser.parse_xml(resp.text)
                 for sandbox in response:
                     self.logger.info('Testing validity of sandbox: {}'.format(sandbox))

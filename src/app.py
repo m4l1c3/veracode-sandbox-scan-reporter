@@ -70,7 +70,7 @@ class App(object):
                 constants.MESSAGE_SUBJECT, 
                 os.getenv('VC_SMTP'), 
                 25, 
-                constants.BUILDS_FOUND_MESSAGE_TEXT.format(os.getenv('VC_ADMIN_ADDRESS')))
+                constants.BUILDS_NOT_FOUND_MESSAGE_TEXT.format(os.getenv('VC_ADMIN_ADDRESS')))
 
 if __name__ == '__main__':
     app = App()
